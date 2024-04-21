@@ -1,0 +1,199 @@
+// da el estilo estructural al formulario
+.regisForm {
+  display: flex;
+  flex-flow: column;
+  padding: 60px;
+  align-items: center;
+
+  // Configuracion de cada uno de los divs (filas) del formulario
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 110px;
+    gap: 20px;
+
+    > label {
+      text-align: center;
+    }
+
+    > :nth-child(n) {
+      width: 200px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+// crea la fila extra que se activa al introducir la password
+.filaExtra-form {
+  display: grid !important; // sin el important no se aplica el grid y se queda como flex
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+
+  > label {
+    text-align: center;
+  }
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.contenedorPassInputButton {
+  display: flex;
+  flex-wrap: nowrap;
+
+  > input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  > button {
+    height: 34px;
+    width: 34px;
+
+    background-image: url("https://genshin.honeyhunterworld.com/img/c_525.webp");
+
+    background-size: 153%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgb(164, 12, 184);
+
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    overflow: hidden; // Esconde cualquier parte del pseudo-elemento que se salga del contenedor
+
+    ::before {
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      background-color: rgb(236, 8, 225);
+    }
+    &:active {
+      background-color: rgb(219, 179, 217);
+    }
+  }
+}
+
+li {
+  text-indent: 10px; // tabulacion de 10px
+  list-style-position: inside; // posicion del punto dentro del li
+}
+
+
+// grid responsive
+.responsive-grid-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 22rem;
+
+  // dense - rollo imgur, (si los elementos mas grandes dejan huecos, los elementos mas pequeños se colocan en esos huecos)
+  grid-auto-flow: dense;
+
+  // auto-fill - rellena el espacio con el numero de columnas que quepan (no aplica a filas)
+  // auto-fit - rellena el espacio con el numero de columnas que quepan y las que sobran se ajustan al tamaño de las columnas
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  // hay funcion min, max y clamp
+
+
+  .li-no-puntos {
+    list-style: none;
+  }
+
+  .card {
+    display: flex;
+    flex-flow: column;
+
+    gap: 15px;
+    padding: 20px;
+
+    border-radius: 25px;
+    border: solid 2px #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    > img {
+      grid-area: img;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 25px;
+      justify-self: center;
+    }
+
+    div{
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      > input{
+
+      }
+
+      > h3{
+        font-size: 1rem;
+
+      }
+
+    }
+
+  }
+
+
+/*
+  .card {
+    display: grid;
+    grid-template-areas:
+      "img img"
+      "radioButton text ";
+
+    gap: 15px;
+    padding: 20px;
+
+    border-radius: 25px;
+    border: solid 2px #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    > img {
+      grid-area: img;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 25px;
+      justify-self: center;
+    }
+
+    // > input {
+    //   grid-area: radioButton;
+    //   padding: 5px 10px;
+    //   border-radius: 15%;
+    //   border: none;
+    //   color: white;
+    //   font-size: 1rem;
+    //   cursor: pointer;
+    // }
+
+    > input{
+      height: 15px;
+      width: 15px;
+      grid-area: radioButton;
+    }
+
+    > h3{
+      grid-area: text;
+      font-size: 1rem;
+    }
+  } */
+}
+
+
+

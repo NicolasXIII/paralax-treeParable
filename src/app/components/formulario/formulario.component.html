@@ -1,0 +1,107 @@
+<!-- formulario formcontrol -->
+
+<app-bubbly-button textoBoton="fantasy"></app-bubbly-button>
+
+<form
+  action=""
+  [formGroup]="formularioGroup"
+  (ngSubmit)="(enviarFormulario)"
+  class="regisForm"
+>
+  <div>
+    <label for="">Usuario</label>
+
+    <input
+      formControlName="usuario"
+      type="text"
+      placeholder="Username"
+      [autocomplete]="false"
+      [maxlength]="restricciones.usuario.maxlength"
+      [minlength]="restricciones.usuario.minlength"
+    />
+    <small>
+      <ul>
+        Normas:
+        <li><strong>NO</strong> estrusctura: consonante seguida de vocal</li>
+        <li>Min - 3</li>
+        <li>Max - 17</li>
+      </ul>
+    </small>
+  </div>
+
+  <div>
+    <label for="">Contraseña</label>
+    <div class="contenedorPassInputButton">
+      <input
+        id="inputPassword"
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        [autocomplete]="false"
+        [maxlength]="restricciones.password.maxlength"
+        [minlength]="restricciones.password.minlength"
+      />
+      <button (click)="toggleVisibility('inputPassword')"></button>
+      <small
+      *ngIf="formularioGroup.get('password')?.errors ">
+        error
+      </small>
+    </div>
+    <small>
+      <ul>
+        Normas:
+        <li>Debe contener la <strong>k</strong></li>
+        <li>Min - 4</li>
+        <li>Max - 6</li>
+      </ul>
+    </small>
+  </div>
+
+  <!--
+        *ngIf="formularioGroup.get('password')?.dirty"
+           Aparece cuando el campo password ha sido tocado
+       -->
+  <div
+    *ngIf="formularioGroup.get('password')?.dirty"
+    class="filaExtra-form "
+  >
+    <label for="">Confirmación</label>
+    <div class="contenedorPassInputButton">
+
+      <input
+      id="passwordConfirmation"
+      formControlName="passwordConfirmation"
+      type="password"
+      placeholder="Confirm Password"
+      [autocomplete]="false"
+      [maxlength]="restricciones.password.maxlength"
+      [minlength]="restricciones.password.minlength"
+      />
+      <button (click)="toggleVisibility('passwordConfirmation')"></button>
+    </div>
+  </div>
+</form>
+
+
+
+<!-- Este segundo formulario aparece solo cuando se ha completado el primero satisfactoriamente -->
+<form action="" *ngIf="formularioGroup.valid || true" [formGroup]="formGIArboles">
+  <h2>Bienvenido al Jardin del Primordial One y sus 4 Shades</h2>
+  <div>
+    <label for="">
+      Cual es tu arbol favorito
+      {{ formularioGroup.get("usuario")?.value }}</label
+    >
+    <ul class="responsive-grid-gallery">
+      <li class="card li-no-puntos" *ngFor="let arbol of arboles; let i = index">
+
+          <img [src]="arbol.img" />
+          <div>
+            <input type="radio" [value]="arbol.nombre" formControlName="" />
+            <h3>{{ arbol.nombre }}</h3>
+          </div>
+
+      </li>
+    </ul>
+  </div>
+</form>

@@ -1,0 +1,301 @@
+$padding: 1rem;
+$font-size: 1.5rem;
+
+// Contenedor responsive
+.responsive-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+// xs
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+// sm
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+// md
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+// lg
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+// xl
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+// xxl
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenedor {
+  display: grid;
+  grid-auto-rows: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+
+  > section {
+    scroll-snap-align: start;
+    height: 100vh;
+
+    > .titulo {
+      z-index: 1;
+
+      position: relative;
+      font-size: $font-size;
+      padding: $padding;
+      margin: 0;
+
+      bottom: 84%;
+      left: 11%;
+      padding-left: 44px;
+      padding-right: 44px;
+
+      // codigo para el fondo de los parrafos/divs
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 67%;
+        height: 100%;
+        border-radius: 15px;
+        z-index: -1;
+        background-color: #82c738;
+      }
+
+      > h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      > small {
+        font-size: 1em;
+      }
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    > div {
+      position: relative;
+      width: 46rem;
+      left: 54%;
+      color: whitesmoke;
+      z-index: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        z-index: -1;
+      }
+
+      > p {
+        position: relative;
+        color: black;
+        font-size: $font-size;
+        padding: $padding;
+        font-weight: bold;
+        margin: 0;
+        z-index: 1;
+      }
+    }
+
+    .p1 {
+      width: 39rem;
+      bottom: 94%;
+      left: 3%;
+
+      &::before {
+        background-color: #77c2b5;
+      }
+    }
+
+    .p2 {
+      width: 35rem;
+      bottom: 59%;
+      left: 73%;
+      color: whitesmoke;
+
+      &::before {
+        background-color: #0164db;
+      }
+
+      > p {
+        color: whitesmoke;
+      }
+    }
+
+    .p3 {
+      color: whitesmoke;
+      width: 37rem;
+      left: 10%;
+      bottom: 27rem;
+
+      &::before {
+        background-color: #e2a1f4;
+      }
+    }
+
+      .p1,
+      .p2 {
+        .cita {
+          font-style: italic;
+          color: rgb(198, 207, 147);
+        }
+      }
+    }
+  }
+
+
+
+
+
+/*
+v1 css
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenedor {
+  display: grid;
+  grid-auto-rows: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+
+
+
+  > section {
+    scroll-snap-align: start;
+    height: 100vh;
+
+    > .titulo{
+      //height: 100vh;
+      z-index: 1;
+
+      position: relative;
+      font-size: $font-size;
+      padding: $padding;
+      margin: 0;
+
+      bottom: 84%;
+      left: 11%;
+      padding-left: 44px;
+      padding-right: 44px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 33%;
+        height: 100%;
+        border-radius: 15px;
+        z-index: -1;
+        background-color: #82c738;
+      }
+
+      > h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      >small {
+        font-size: 1em;
+      }
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    > p {
+      position: relative;
+      color: black;
+      font-size: $font-size;
+      padding: $padding;
+      font-weight: bold;
+      margin: 0;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        z-index: -1;
+      }
+    }
+
+    .p1 {
+      width: 39rem;
+      bottom: 94%;
+      left: 3%;
+      &::before {
+        background-color: #77c2b5;
+      }
+    }
+    .p2 {
+      width: 46rem;
+      bottom: 31%;
+      left: 54%;
+      color: whitesmoke;
+      &::before {
+        background-color: #0164db;
+      }
+    }
+    .p3 {
+      width: 26rem;
+      bottom: 33%;
+      left: 13%;
+      &::before {
+        background-color: #e2a1f4;
+      }
+    }
+  }
+} */

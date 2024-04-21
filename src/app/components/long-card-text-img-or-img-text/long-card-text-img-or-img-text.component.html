@@ -1,0 +1,13 @@
+<ng-container *ngIf="longCards">
+  <ng-container *ngFor="let card of longCards; let i = index">
+    <!--
+      cuando la card es:
+        par:    img, text
+        impar:  text, img
+    -->
+    <div class="longCard" [ngClass]="{ 'img-text': i % 2 == 0, 'text-img': i % 2 != 0 }">
+      <img [src]="card.img" />
+      <p>{{ card.text }}</p>
+    </div>
+  </ng-container>
+</ng-container>
